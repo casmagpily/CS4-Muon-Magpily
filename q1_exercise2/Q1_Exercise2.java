@@ -19,12 +19,12 @@ public class Q1_Exercise2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean stop = false;
+        String initiate = "Start game";
+        String config = "Change settings";
+        String shutdown = "End application";
+        int guessNm = 3, lowerLimit = -4, upperLimit = 4, range;
+        range = Math.abs(lowerLimit) + Math.abs(upperLimit);
         while(!stop){
-            String initiate = "Start game";
-            String config = "Change settings";
-            String shutdown = "End application";
-            int guessNm = 3, lowerLimit = -4, upperLimit = 4, range;
-            range = Math.abs(lowerLimit) + Math.abs(upperLimit);
             int ranNum = (int) Math.floor(Math.random()*range) + lowerLimit;
             System.out.println("Welcome to Higher or Lower! What will you do?");
             System.out.println(initiate);
@@ -55,8 +55,15 @@ public class Q1_Exercise2 {
                     System.out.println("What is the lower limit of the random number?");
                     System.out.println("What is the upper limit of the random number?");
                     System.out.println("How many guesses are allowed?");
-                    System.out.println("Lower Limit:");
+                    System.out.println("Lower Limit(currently at " + lowerLimit + "):");
                     lowerLimit = Integer.parseInt(sc.nextLine());
+                    System.out.println("Lower Limit is now set to " + lowerLimit);
+                    System.out.println("Upper Limit(currently at " + upperLimit + "):");
+                    upperLimit = Integer.parseInt(sc.nextLine());
+                    System.out.println("Upper Limit is now set to " + upperLimit);
+                    System.out.println("Guesses(currently at " + guessNm + "):");
+                    guessNm = Integer.parseInt(sc.nextLine());
+                    System.out.println("Guesses are now set to " + guessNm);
                     break;
                 case "End application":                   
                     stop = true;
