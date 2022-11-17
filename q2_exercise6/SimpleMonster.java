@@ -71,15 +71,26 @@ public class SimpleMonster {
     public void rest(){
         hp = maxHP;
     }
+    public void move(SimpleMonster n, SimpleMonster y){
+        int choice = (int)Math.floor(Math.random() * 3) + 1;
+        switch (choice){
+            case 1:
+                n.attack(y);
+            case 2:
+                n.rest();
+            case 3:
+                n.special();
+        }
+    }
     public static void fight(SimpleMonster m, SimpleMonster x){
         System.out.println(m.name + " VS. " + x.name + "\n");
-        
-        int choice = (int)Math.floor(Math.random() * 3) + 1;
         while(x.hp > 0 || m.hp > 0){
-            switch (choice){
-                case 1:
-                    m.attack(x);
+            m.move(m, y);
+            y.move(y, m);
+            if(m.hp == 0 || x.hp == 0){
+                break;
             }
         }
+        
     }
 }
