@@ -67,9 +67,7 @@ public abstract class SimpleMonster implements Interactive{
         }
     }
 
-    public abstract void special(){
-        System.out.println(name + " did a pose.");
-    }
+    public abstract void special();
 
     public void rest(){
         hp = maxHP;
